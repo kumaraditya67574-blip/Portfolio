@@ -1,49 +1,182 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>MY BOOTSTRAP</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width" , initial-scale=1"> 
+  <meta charset="utf-8" />
+  <title>MY BOOTSTRAP - Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <style>
+    
+    :root {
+      --bg1: #0f172a;
+      --bg2: #0b3d91;
+      --bg3: #7b2ff7;
+      --bg4: #00b4d8;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    
+    .animated-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background: linear-gradient(120deg, var(--bg1), var(--bg2));
+      background-size: 600% 600%;
+      animation: gradientShift 20s ease infinite;
+      filter: contrast(115%);
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      25% { background-position: 50% 100%; }
+      50% { background-position: 100% 50%; }
+      75% { background-position: 50% 0%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(30px) saturate(120%);
+      opacity: 0.7;
+      mix-blend-mode: screen;
+      animation: floatAround 18s linear infinite;
+      transform: translate3d(0,0,0);
+      z-index: -1;
+    }
+
+    .blob.b1 { width: 420px; height: 420px; left: -10%; top: 5%; background: radial-gradient(circle at 30% 30%, rgba(123,47,247,0.9), rgba(123,47,247,0.15)); animation-duration: 22s; }
+    .blob.b2 { width: 360px; height: 360px; right: -12%; top: 20%; background: radial-gradient(circle at 30% 30%, rgba(0,180,216,0.9), rgba(0,180,216,0.12)); animation-duration: 26s; }
+    .blob.b3 { width: 300px; height: 300px; left: 10%; bottom: -8%; background: radial-gradient(circle at 30% 30%, rgba(255,130,92,0.85), rgba(255,130,92,0.08)); animation-duration: 20s; }
+
+    @keyframes floatAround {
+      0% { transform: translateY(0) translateX(0) scale(1); }
+      25% { transform: translateY(-30px) translateX(20px) scale(1.03); }
+      50% { transform: translateY(0) translateX(-10px) scale(1); }
+      75% { transform: translateY(25px) translateX(10px) scale(0.98); }
+      100% { transform: translateY(0) translateX(0) scale(1); }
+    }
+
+    
+    .site-header {
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(6px);
+    }
+
+    .hero {
+      padding: 5rem 1rem;
+      color: #fff;
+      text-shadow: 0 3px 18px rgba(0,0,0,0.6);
+    }
+
+    .card-glass {
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #fff;
+      backdrop-filter: blur(6px);
+    }
+
+    a {
+      color: #bfe9ff;
+    }
+
+    
+    @media (max-width: 576px) {
+      .hero { padding: 3rem 1rem; font-size: 0.95rem; }
+      .blob { filter: blur(22px); }
+    }
+  </style>
 </head>
 <body>
-
- <div class="container-fluid pt-5 text-white text-center bg-dark">
- <h1>PORTFOLIO</h1>
-</div>
-
-
-<div class="container-fluid pt-2 border bg-white text-black">
-<h2>Aditya Vats </h2>
-</div>
-
-<div class=" text-dark container-fluid">
-<h6><a href="about.html">About Me</a>  <a href="contact.html">Contacts</a></h6>
-
-<div class="container-fluid pt-5 text-center text-dark display-2">
-<p>Welcome to my Page </p>
-</div>
-<div class="container pt-4 display-5">
-<p>Hi, I am Aditya . I like Physics and Mathematics , in physics i like specially quamtum physics and I am the freshie at IIT Madras </p>
-</div>
-
-<div class="container-fluid pt-5 text-center text-primary display-2 bg-dark">
-<p>I am Freelancer . I am a web developer use this to make your interactive website for you.</p>
-</div>
-
-
-<div class="container mt-3">
-  <h3>Give your contacts </h3>
-  <p>For making website </p>
   
-  <button type="button" class="btn btn-primary" onclick="location.href='contact.html'">
-    here 
-  </button>
-</div>
+  <div class="animated-bg" aria-hidden="true"></div>
+  <div class="blob b1" aria-hidden="true"></div>
+  <div class="blob b2" aria-hidden="true"></div>
+  <div class="blob b3" aria-hidden="true"></div>
 
 
+  <header class="site-header container-fluid py-4 text-center">
+    <div class="container">
+      <h1 class="display-6 text-white mb-0">PORTFOLIO</h1>
+      <p class="text-white small mb-0">Aditya Vats — Physics, Mathematics & Web Development</p>
+    </div>
+  </header>
+
+  
+  <main class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10">
+        <section class="card card-glass p-4 shadow-sm">
+          <div class="row align-items-center">
+            <div class="col-md-4 text-center">
+              <h2 class="h3 text-white mb-1">Aditya Vats</h2>
+              <p class="text-muted small mb-2">IIT Madras · Freshman</p>
+              <nav class="mb-3">
+                <a href="about.html" class="me-3">About Me</a>
+                <a href="contact.html">Contacts</a>
+              </nav>
+              <button type="button" class="btn btn-outline-light btn-sm" data-bs-toggle="modal" data-bs-target="#contactModal">
+                Fill Contact Form
+              </button>
+            </div>
+
+            <div class="col-md-8">
+              <div class="hero">
+                <h3 class="display-5 fw-normal">Welcome to my page</h3>
+                <p class="lead mt-3 mb-3" style="color: #e9f7ff;">
+                  Hi, I am Aditya. I like Physics and Mathematics — especially quantum physics. I'm a freshman at IIT Madras.
+                </p>
+
+                <div class="p-3 rounded-3" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.03);">
+                  <p class="mb-2">
+                    I also do freelance web development. I build interactive, responsive websites — get in touch if you'd like a custom site.
+                  </p>
+                  <div class="d-flex gap-2">
+                    <a href="contact.html" class="btn btn-primary btn-sm">Contact Page</a>
+                    <a href="#portfolio" class="btn btn-outline-light btn-sm">See Work</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> 
+        </section>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mt-4">
+      <div class="col-md-8">
+        <section id="contact-cta" class="card card-glass p-4">
+          <h4 class="h5 text-white">Give your contacts</h4>
+          <p class="text-muted">For making websites — click the button below to open the contact form.</p>
+          <button type="button" class="btn btn-primary" onclick="location.href='contact.html'">here</button>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+  
+  <script>
+    (function() {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) {
+        document.querySelectorAll('.animated-bg, .blob').forEach(el => {
+          el.style.animation = 'none';
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
