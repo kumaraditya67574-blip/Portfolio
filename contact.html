@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact — Portfolio</title>
   <style>
-    /* Basic reset */
+  
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { height: 100%; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
 
@@ -13,29 +13,29 @@
       display: grid;
       place-items: center;
       min-height: 100vh;
-      background: #0f1724; /* fallback */
+      background: #0f1724; 
       color: #e6eef8;
       padding: 32px;
     }
 
-    /* Section wrapper */
+    
     .contact-section {
       position: relative;
       width: min(980px, 95vw);
       max-width: 980px;
       border-radius: 16px;
-      overflow: hidden; /* important so bubbles don't overflow container */
+      overflow: hidden; 
       box-shadow: 0 10px 30px rgba(2,6,23,0.6);
       background: linear-gradient(180deg, rgba(12,18,28,0.65), rgba(8,12,20,0.55));
       backdrop-filter: blur(6px);
     }
 
-    /* Animated gradient layer */
+    
     .animated-bg {
       position: absolute;
       inset: 0;
       z-index: 1;
-      /* Create multilayer gradient */
+      
       background: linear-gradient(120deg, rgba(99,102,241,0.14), rgba(236,72,153,0.12) 30%, rgba(14,165,233,0.10) 60%, rgba(34,197,94,0.08));
       background-size: 300% 300%;
       filter: blur(20px) saturate(1.05);
@@ -50,7 +50,7 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Floating bubbles */
+    
     .bg-bubbles {
       position: absolute;
       inset: 0;
@@ -68,7 +68,7 @@
       animation: floatUp linear infinite;
     }
 
-    /* Individual bubble sizes/positions (tweak as desired) */
+    
     .bubble.b1 { width: 220px; height: 220px; left: 6%; bottom: -30%; background: radial-gradient(circle at 30% 30%, rgba(99,102,241,0.38), rgba(99,102,241,0.08)); animation-duration: 20s; animation-delay: 0s; }
     .bubble.b2 { width: 160px; height: 160px; left: 22%; bottom: -20%; background: radial-gradient(circle at 70% 30%, rgba(236,72,153,0.34), rgba(236,72,153,0.06)); animation-duration: 24s; animation-delay: 2s; }
     .bubble.b3 { width: 300px; height: 300px; left: 60%; bottom: -40%; background: radial-gradient(circle at 40% 60%, rgba(14,165,233,0.28), rgba(14,165,233,0.05)); animation-duration: 30s; animation-delay: 4s; }
@@ -89,7 +89,6 @@
       }
     }
 
-    /* Form container (above animated layers) */
     .contact-card {
       position: relative;
       z-index: 3;
@@ -177,13 +176,13 @@
     button[type="submit"]:active { transform: translateY(1px) scale(0.998); }
     button[type="submit"]:hover { opacity: 0.96; }
 
-    /* Responsive */
+    
     @media (max-width: 720px) {
       .input-grid { grid-template-columns: 1fr; }
       .contact-section { border-radius: 12px; }
     }
 
-    /* Honor user's motion preferences */
+    
     @media (prefers-reduced-motion: reduce) {
       .animated-bg, .bg-bubbles .bubble { animation: none !important; transition: none !important; }
       .bg-bubbles .bubble { opacity: 0.12; filter: blur(4px); }
@@ -192,10 +191,10 @@
 </head>
 <body>
   <section class="contact-section" aria-labelledby="contact-heading">
-    <!-- animated gradient -->
+    
     <div class="animated-bg" aria-hidden="true"></div>
 
-    <!-- floating bubbles -->
+    
     <div class="bg-bubbles" aria-hidden="true">
       <span class="bubble b1"></span>
       <span class="bubble b2"></span>
@@ -204,7 +203,7 @@
       <span class="bubble b5"></span>
     </div>
 
-    <!-- content card -->
+    
     <div class="contact-card">
       <div>
         <h2 id="contact-heading">Contact Me</h2>
@@ -238,14 +237,11 @@
   </section>
 
   <script>
-    // Example submit handler - replace with real integration (Email API, Formspree, Netlify, backend, etc.)
     function handleSubmit(e) {
       e.preventDefault();
       const btn = e.target.querySelector('button[type="submit"]');
       btn.disabled = true;
       btn.textContent = 'Sending…';
-
-      // fake submission delay
       setTimeout(() => {
         btn.disabled = false;
         btn.textContent = 'Send message';
